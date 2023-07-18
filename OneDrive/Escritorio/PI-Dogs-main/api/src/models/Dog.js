@@ -7,28 +7,46 @@ module.exports = (sequelize) => {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: 'nameIndex',
     },
     id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
+      type: DataTypes.UUID, 
+      defaultValue: DataTypes.UUIDV4,
       allowNull: false,
-      autoIncrement: true,
+      primaryKey: true, 
     },
     image: {
-      type: DataTypes.JSONB,
-      allowNull: false,
-    },
-    height: {
-      type: DataTypes.JSONB,
-      allowNull: false,
-    },
-    weight: {
-      type: DataTypes.JSONB,
-      allowNull: false,
-    },
-    lifespan: {
+			type: DataTypes.STRING,
+			allowNull: true,
+		},
+    heightMin: {
+			type: DataTypes.INTEGER,
+			allowNull: false,
+		},
+		heightMax: {
+			type: DataTypes.STRING,
+			allowNull: false,
+		},
+		weightMin: {
+			type: DataTypes.STRING,
+			allowNull: false,
+		},
+		weightMax: {
+			type: DataTypes.STRING,
+			allowNull: false,
+		},
+    lifeSpan: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-  });
+    bredFor: {
+			type: DataTypes.STRING,
+			allowNull: true,
+		}, 
+    created: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true
+    }
+  },{timestamps: false}); 
 };

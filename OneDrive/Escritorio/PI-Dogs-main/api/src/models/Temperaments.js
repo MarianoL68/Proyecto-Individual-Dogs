@@ -1,16 +1,17 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-    sequelize.define('temperaments', {
+    sequelize.define('temperament', {
       id: {
-        type: DataTypes.INTEGER,
-        primaryKey: true,
+        type: DataTypes.UUID,
         allowNull: false,
-        autoIncrement: true,
-      },
+        primaryKey: true,
+        defaultValue: DataTypes.UUIDV4,
+},
       name: {
         type: DataTypes.STRING,
         allowNull: false,
-      }
+        unique: 'nameIndex'
+      },
     })
 }
