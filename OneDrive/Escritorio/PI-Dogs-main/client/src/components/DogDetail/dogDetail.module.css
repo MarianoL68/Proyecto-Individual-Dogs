@@ -1,0 +1,12 @@
+.dogDetail img {
+    width: 300px;
+    height: 200px;
+    margin: 10px;
+    border: 1px solid gray;
+}
+
+.dogDetail span {
+    display: block;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+}
