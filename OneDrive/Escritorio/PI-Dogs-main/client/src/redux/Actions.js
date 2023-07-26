@@ -60,23 +60,19 @@ export const getDogByName = (name) => {
     }
 }
 
-export const postCreateDog = (payload) => {
+export const postCreateDog = (dog) => {
     return async (dispatch) => {
         try {
-            const response = await axios.post(`${endpoint}/dogs`, payload);
-            console.log(payload) 
-            console.log(response.data)
-        dispatch({
-            Type: CREATE_DOG,
-            payload: response.data
-        });
-            
+          const response = await axios.post(`${endpoint}/dogs`, dog);
+          dispatch({
+            type: CREATE_DOG,
+            payload: response.data,
+          });
         } catch (error) {
-            console.log(error);
+          console.error(error);
         }
-    
-    }
-}
+      };
+    };
 
 export const getTemperaments = () => {
     return async(dispatch) => {

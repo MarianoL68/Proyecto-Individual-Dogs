@@ -1,0 +1,93 @@
+.fondo{
+  background-image: url('./fondoForm.avif');
+  background-size: cover; /* La imagen de fondo se ajusta para cubrir toda el área del contenedor */
+  background-position: center; /* Centra la imagen de fondo */
+  width: 100%;
+  height: 100vh;
+
+}
+.container{
+  background-color:#f4a462; /* Agrega un fondo semi-transparente para el contenido */
+  padding: 20px;
+  max-width: 300px; /* Limita el ancho máximo del formulario */
+  margin: 0 auto;
+  flex-direction: column;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  
+}
+
+.container label{
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.container input[type="text"]{
+width: 100%;
+padding: 6px; /* Tamaño de relleno reducido */
+font-size: 14px; /* Tamaño de fuente reducido */
+border: 1px solid #ccc;
+border-radius: 5px;
+box-sizing: border-box;
+margin-bottom: 10px; /* Espacio inferior reducido */
+background-color: #f2f2f2;
+}
+
+.container input[type="text"]:focus,
+input[type="number"]:focus {
+  border-color: #2a9d90;
+  box-shadow: 0 0 5px #2a9d90;
+}
+
+ button {
+    padding: 8px 16px; /* Tamaño de relleno reducido */
+    font-size: 14px; /* Tamaño de fuente reducido */
+    background-color: #2a9d90;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .container select {
+    appearance: none;
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 8px 4px;
+    padding-right: 24px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #2a9d90;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  /* Estilos para el elemento option */
+  .container select option {
+    background-color:#f4a462; /* Color de fondo de las opciones */
+    font-size: 14px; /* Tamaño de fuente */
+    color: #333; /* Color de texto */
+  }
+
+  .container select:focus {
+    outline: none;
+    border-color: #2a9d90;
+    box-shadow: 0 0 5px #2a9d90;
+    background-color: #f4a462; /* Color de fondo al tener el foco */
+  }
+  
+  /* Estilos para el botón desplegable cuando el cursor está sobre él */
+  .container select:hover {
+    background-color: #f4a462 /* Color de fondo al pasar el cursor */
+  }
+  
+  
+  
+  
+  
+  
+      
+

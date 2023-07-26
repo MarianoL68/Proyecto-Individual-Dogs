@@ -25,7 +25,7 @@ const reducer = (state = initalState, {type, payload}) => {
             return{
                 ...state,
                 allDogs: payload,
-                dogsCopy: payload
+                dogsCopy: [...payload]
             }
         case GET_DOG_BY_ID:
             return{
@@ -40,8 +40,9 @@ const reducer = (state = initalState, {type, payload}) => {
         case CREATE_DOG:
             return{
                 ...state,
-                createdDogs: state.createdDogs.unshift(payload),
-               allDogs: [payload, ...state.allDogs]
+                createdDogs: [payload, ...state.createdDogs], 
+                allDogs: [payload, ...state.allDogs],
+            
             }
         case GET_TEMPERAMENTS:
             return{
@@ -56,12 +57,14 @@ const reducer = (state = initalState, {type, payload}) => {
                 allDogs: filter
             }
             case FILTER_CREATED_DOGS:
-                const filterAllDogs = state.dogsCopy;
-                const filterCreated = payload === 'Creados' ? filterAllDogs.filter(dog => dog.created) : filterAllDogs.filter(dog => !dog.created);
-                return{
-                    ...state,
-                    allDogs: payload === 'All' ? filterAllDogs : filterCreated
-                }
+                const filterCreated = payload === 'Created'
+                  ? state.dogsCopy.filter(d => d.created)
+                  : state.dogsCopy.filter(d => !d.created);
+          
+                return {
+                  ...state,
+                  allDogs: payload === 'All' ? state.dogsCopy : filterCreated,
+            };
             case ORDER_BY_NAME:
                 let orderByName;
                 if (payload === "name-Asc"){

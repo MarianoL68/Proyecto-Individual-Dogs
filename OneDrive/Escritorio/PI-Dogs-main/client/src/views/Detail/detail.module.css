@@ -1,0 +1,8 @@
+.fondo{
+    flex: 1;
+    background-color: #2a9d90;
+    background-size: cover;
+    height: 100vh;
+    justify-content: center; 
+    align-items: center; 
+}

@@ -1,0 +1,48 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 300px; /* Ancho máximo del componente */
+    margin: 0 auto;
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden; /* Para ocultar cualquier contenido que se desborde */
+    padding: 8px; /* Ajusta el relleno del contenedor */
+  }
+  
+  span {
+    font-size: 20px; /* Aumenta el tamaño de fuente para que se note más */
+  font-weight: bold; /* Aplica negrita al texto para que sea más visible */
+  margin-right: 8px; /* Espacio entre el texto "Ordenar por" y el select */
+  color: black; /* Color del texto del span */
+  }
+  
+  select {
+    /* Estilos para hacer que el select parezca un botón */
+    padding: 8px 16px; /* Aumenta el tamaño del padding para que el select se vea más grande */
+    font-size: 14px;
+    border: none;
+    outline: none;
+    background-color:#274754; /* Color de fondo del "botón" */
+    color: #fff; /* Color del texto del "botón" */
+    /* border-radius: 5px; Agrega bordes redondeados */
+    cursor: pointer;
+    transition: background-color 0.3s; /* Efecto de transición al pasar el cursor */
+    margin-left: 5px;
+    margin-top: 5px;
+  }
+  
+  select:hover {
+    background-color:#274754; /* Color de fondo al pasar el cursor sobre el "botón" */
+  }
+  
+  select:focus {
+    border-color: #2a9d90;
+    box-shadow: 0 0 5px #2a9d90;
+  }
+  
+  select option {
+    font-size: 14px; /* Tamaño de fuente de las opciones */
+  }

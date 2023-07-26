@@ -1,0 +1,12 @@
+.general{
+    flex: 1;
+    background-color: #2a9d90;
+    background-size: cover;
+    height: 150vh;
+}
+  
+.orderFilter{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

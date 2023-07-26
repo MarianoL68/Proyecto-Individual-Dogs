@@ -1,3 +1,21 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+}
+
+.dogDetail {
+    background-color: #fff;
+    max-width: 600px;
+    padding: 20px;
+    border: 2px solid #2a9d90;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+
 .dogDetail img {
     width: 300px;
     height: 200px;
@@ -5,8 +23,16 @@
     border: 1px solid gray;
 }
 
+.dogDetail h2{
+    font-size: 32px;
+    font-weight: bold;
+    color: #2a9d90;
+}
+
 .dogDetail span {
     display: block;
     font-family: Arial, sans-serif;
     font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
 }

@@ -5,13 +5,17 @@ import Home from './views/Home/Home';
 import Detail from './views/Detail/Detail';
 import Form from './views/Form/Form';
 import NavBar from './components/NavBar/NavBar';
+import { useLocation } from 'react-router-dom';
 
 
 
 function App() {
+  const location = useLocation();
   return (
   <div>
-  <NavBar/>
+    {
+      location.pathname !== '/' ? <NavBar/> : null
+    }
    <Routes>
     <Route exact path = "/" element = {<LandingPage/>} />
     <Route path = "/home" element = {<Home/>} />

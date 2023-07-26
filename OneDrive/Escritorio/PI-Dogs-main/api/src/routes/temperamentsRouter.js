@@ -1,15 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const {getTemperaments} = require('../controllers/temperamentsControllers');
+const {getTemperamentsHandler} = require('../handlers/temperamentsHandler');
 
-router.get("/", async(req, res)=>{
-    try {
-     const temperament = await getTemperaments();
-     return res.status(200).json(temperament);
- 
-    } catch (error) {
-     return res.status(404).send(error.message)
-    } 
- });
+router.get("/", getTemperamentsHandler);
 
 module.exports = router;

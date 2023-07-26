@@ -2,11 +2,11 @@
     display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #00416A;
+  background-color:#e76e50;
   }
 
   .input {
-    padding: 8px;
+  padding: 8px;
   border-radius: 4px;
   border: none;
   color: #00416A;
@@ -22,7 +22,18 @@
   }
 
 .title {
- font-family: monospace;
- font-size: 1.5em;
- color: white;
+ font-family:monospace  ;
+ font-size: 2em;
+ color:#274754;
+ text-decoration: none;
+ transition: color 0.2s ease;
 }
+
+.title:hover {
+  color: #007b9f; /* Cambia el color al pasar el mouse */
+}
+
+
+
+
+

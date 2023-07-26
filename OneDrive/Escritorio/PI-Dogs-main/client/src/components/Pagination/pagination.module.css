@@ -19,29 +19,13 @@
   
   .pagination li span {
     cursor: pointer;
-    background-color: #2a9d90;
+    background-color: #f4a462;
     padding: 5px 10px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
 
   .pagination li span:hover {
-    background-color: #274754;
+    background-color: #e8c468;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-  }
-
-  .pagination button {
-    background-color:#2a9d90;
-    border: none;
-    border-radius: 5px;
-    padding: 8px 16px;
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s;
-  }
-  
-  .pagination button:hover {
-    background-color:  #274754;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-    transform: scale(1.1);
   }

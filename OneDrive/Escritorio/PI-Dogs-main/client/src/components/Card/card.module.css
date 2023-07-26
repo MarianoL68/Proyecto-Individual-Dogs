@@ -1,14 +1,47 @@
 .containerPrincipal {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start; 
     align-items: center;
-    width: 200px;
-    height: 300px;
+    width: 220px;
+    height: 320px;
     margin: 2em;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden; 
+    background-color:#e8c468;
+    box-shadow: 0px 9px 14px#e76e50;
+    transition: transform 0.2s ease;
+   
+
 }
 
-.containerPrincipal img {
+.containerPrincipal:hover {
+    transform: scale(1.05); 
+  }
+
+.containerPrincipal h1{
+    font-size: 20px;
+    text-align: center; 
+    color:#274754;
+}
+
+  .containerPrincipal span {
+    text-align: center; 
+    text-decoration: none;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 1em; /* Cambia el tamaño de la fuente según tus preferencias */
+    font-weight: bold;
+    color: black;
+  }
+
+.img {
     width: 100%;
-    height: 50%;
+    height: 100%;
+}
+
+.containerImg {
+    width: 100%;
+    height: 160px;
+    margin-top: 0; /* Ajusta el margen superior a 0 para que se pegue al techo */
 }

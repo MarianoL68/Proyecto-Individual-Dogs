@@ -1,5 +1,6 @@
 import { useDispatch} from "react-redux";
 import { orderByName, orderByWeight } from "../../redux/Actions";
+import style from '../Order/order.css'
 
 const InOrder = () => {
 
@@ -16,7 +17,7 @@ const InOrder = () => {
     }
 
     return (
-        <div>
+        <div className={style.container}>
             <span>Ordenar por: </span>
             <select onChange={handleChange}>
                 <option value="name-Asc">Nombre (Asc)</option>

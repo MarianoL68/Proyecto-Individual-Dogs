@@ -4,36 +4,39 @@ const apiKey = process.env.API_KEY;
 
 const dbDogs = async () => {
     try {
+       // Obtener los perros de la base de datos, incluyendo los temperamentos asociados 
         const dogs = await Dog.findAll({include:{
             model: Temperament,
-            attributes: ["name"],
+            attributes: ["name"], //incluir solo el atributo name de la tabla Temperament
             throught: {
-                attributes: [],
+                attributes: [], //para excluir los atributos de la tabla intermedia 
             },
         },
     });
-
+       // Formateo los datos obtenidos de la base de datos
        const dbFormated = dogs.map(dog => {
-        if(!dog.image){
+        if(!dog.image){ // Asignar una imagen predeterminada si no hay imagen para el perro
           dog.image = "https://dogemuchwow.com/wp-content/uploads/2016/05/the-doge-favicon-blue.png";
         }
 
+      // Mapeo los temperamentos asociados y los convierto en una cadena separada por comas
       const temperamentsMap = dog.temperaments.map(temp => temp.name);
       const converseTemps = Array.isArray(temperamentsMap)
       ? temperamentsMap.join(', ')
       : temperamentsMap;
 
       return{
+        name: dog.name,
         id: dog.id,
-				name: dog.name,
+        image: dog.image,
+        heightMin: dog.heightMin,
+				heightMax: dogs.heightMax,
 				weightMin: dog.weightMin,
 				weightMax: dog.weightMax,
-				heightMin: dog.heightMin,
-				heightMax: dogs.heightMax,
-				temperament: converseTemps,
-				lifeSpan: dog.lifeSpan,
+        lifeSpan: dog.lifeSpan,
 				bredFor: dog.bredFor,
-				image: dog.image,
+        temperament: converseTemps,
+        created: dog.created,
       }
 
        })
@@ -49,9 +52,12 @@ const dbDogs = async () => {
 
 const getApiDogs = async () => {
     try {
+      // Obtener los perros de la API externa
       const {data} = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${apiKey}`);
 
+    // Formateo los datos obtenidos de la API
 		return await data.map((d) => {
+      //separar los valores mínimo y máximo de peso y altura
 			let [weightMin, weightMax] = d.weight.metric.split("-")
 			let [heightMin, heightMax] = d.height.metric.split("-")
 			let temperament = d.hasOwnProperty("temperament")
@@ -68,6 +74,7 @@ const getApiDogs = async () => {
 				lifeSpan: d.life_span,
 				bredFor: d.bred_for,
 				image: d.image.url,
+       
 			
 			}
 			return dogApi;
@@ -80,13 +87,16 @@ const getApiDogs = async () => {
 
   const getAllDogs = async (name) => {
     try {
+       // Obtener los perros de la base de datos y de la API
         const callDb =  await dbDogs();
         const callApi = await getApiDogs();
-        const allData = [...callApi, ...callDb];
+        const allData = [...callApi, ...callDb]; // Combino los resultados en un único array
 
+        // Se ordenan los perros alfabéticamente por nombre en orden ascendente
         allData.sort((a, b) => (a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1))
+        // Filtrar los perros cuyo nombre coincide con el valor proporcionado
         return name ? allData.filter((d)=> {return d.name.toLowerCase().search(name.toLowerCase()) >=0 }): allData
-       // return allData;
+       
         
     } catch (error) {
         throw new Error('No existe el perro')

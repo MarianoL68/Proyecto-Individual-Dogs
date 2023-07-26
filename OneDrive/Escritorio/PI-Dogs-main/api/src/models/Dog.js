@@ -7,7 +7,7 @@ module.exports = (sequelize) => {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: 'nameIndex',
+     
     },
     id: {
       type: DataTypes.UUID, 
@@ -20,7 +20,7 @@ module.exports = (sequelize) => {
 			allowNull: true,
 		},
     heightMin: {
-			type: DataTypes.INTEGER,
+			type: DataTypes.STRING,
 			allowNull: false,
 		},
 		heightMax: {

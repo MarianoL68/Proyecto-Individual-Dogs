@@ -2,6 +2,7 @@ import React from "react";
 import { useState} from "react";
 import { useDispatch } from "react-redux"
 import { getDogByName } from "../../redux/Actions";
+import style from './searchBar.css';
 
 const SearchBar = () => {
 
@@ -19,7 +20,7 @@ const SearchBar = () => {
      }
 
     return (
-        <div>
+        <div className={style.searchbar}>
             <input type="text"
                    value={name}
                    onChange = {(e) => handleChange(e)}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { postCreateDog, getTemperaments } from '../../redux/Actions';
 import { useDispatch, useSelector } from 'react-redux';
+import style from '../Form/form.module.css'
 
 const validation = (formData) => {
 
@@ -63,7 +64,8 @@ const Form = () => {
         weightMin: '',
         weightMax: '',
         lifeSpan: '',
-        temperament: [],
+        temperaments: [],
+        created: true,
     });
 
     useEffect(() => {
@@ -83,7 +85,6 @@ const Form = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(formData)
         dispatch(postCreateDog(formData));
         console.log(formData)
         console.log(createdDogs)
@@ -95,20 +96,22 @@ const Form = () => {
             weightMin: '',
             weightMax: '',
             lifeSpan: '',
-            temperament: [],
+            temperaments: [],
+            created: true,
         })
     };
 
     const handleTemperamentsChange = (event) => {
         setFormData({
             ...formData,
-            temperament: [...formData.temperament, event.target.value]
+            temperaments: [...formData.temperaments, event.target.value]
         });
 
     }
 
     return (
-        <div>
+    <div className={style.fondo}>
+        <div className={style.container}>
              <form onSubmit={handleSubmit}>
            
                 <label>Nombre: 
@@ -136,7 +139,7 @@ const Form = () => {
                     {errors.lifeSpan && <p>{errors.lifeSpan}</p>}
                 </label>
                 <label>Temperamentos: 
-                    <select name="temperaments" multiple value={formData.temperament}  onChange={(e) => handleTemperamentsChange(e)}>
+                    <select name="temperaments"  value={formData.temperaments}  onChange={(e) => handleTemperamentsChange(e)}>
                         {
                             temperaments.map(temp => (
                                 <option key={temp.name} value={temp.name}>{temp}</option>
@@ -144,7 +147,7 @@ const Form = () => {
                         }
                     </select>
                     <ul>
-                        <li>{formData.temperament.map((temp) =>temp + ",")}</li>
+                        <li>{formData.temperaments.map((temp) =>temp + ",")}</li>
                     </ul>
                 </label>
                 <button type='submit' >Crear perro</button>
@@ -152,7 +155,7 @@ const Form = () => {
             </form>
 
         </div>
-  
+    </div>
     )
 
 }
